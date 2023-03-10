@@ -1,0 +1,38 @@
+<form #myForm="ngForm"> 
+    <input type="text" ngModel name="search" class="form-control form-control-lg" placeholder="Search Item...">  
+    <button type="button" class="btn btn-danger">
+        Cart <span class="badge badge-danger">{{itemCount}}</span>
+      </button>
+</form>
+<br>
+<hr> 
+<div class="result">
+
+    <hr>
+    <div class="d-flex">
+      
+      <table class="table table-dark">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">ID</th>
+            <th scope="col">Title</th>
+            <th scope="col">Price</th>
+            <th scope="col">Buy</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr  *ngFor="let item of prod ">
+            <th scope="row">{{item.id}}</th>
+            <td>{{item.id}}</td>
+            <td>{{item.title}}</td>
+            <td>{{item.price}}</td>
+            <button class="btn btn-primary" color="blue"> <a *ngIf="isCart" (click)="addToCart()"> Add to Cart</a></button>
+            <button *ngIf="displayedButton===1" (click)="onButtonMinusClick()">-</button>
+             <p *ngIf="displayedButton===1 || isCart">{{itemCount}}</p>
+            <button *ngIf="displayedButton===1" (click)="onButtonPlusClick()">+</button>
+          </tr>
+        </tbody>
+      </table>
+    </div> 
+</div>
